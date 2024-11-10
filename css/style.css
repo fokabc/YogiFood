@@ -15,12 +15,34 @@ header {
     background-color: #1E1E1E; /* Темная шапка */
     border-bottom: 1px solid #333;
     text-align: center;
+    position: relative;
 }
 
 header h1 {
     font-size: 1.5em;
     color: #E0E0E0;
     margin: 0;
+}
+
+/* Стиль для значка корзины в header */
+.cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1em;
+    background-color: #333333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #E0E0E0;
+}
+
+.cart-icon a {
+    color: inherit; /* Убираем цвет ссылки */
+    text-decoration: none;
+}
+
+.cart-icon a:hover {
+    color: #BB86FC; /* Изменяем цвет при наведении */
 }
 
 /* Убираем подчеркивание и цвет текста для ссылок */
@@ -109,6 +131,22 @@ button.back-button {
 
 button.back-button:hover {
     background-color: #555555;
+}
+
+/* Стили для кнопок добавления товара (+) */
+.product-card button {
+    font-size: 1.5em;
+    padding: 5px 10px;
+    background-color: #BB86FC;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #A75AFF;
 }
 
 /* Стили для ввода текста */

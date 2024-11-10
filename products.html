@@ -9,6 +9,9 @@
 <body>
     <header>
         <h1>Товары магазина</h1>
+        <div class="cart-icon">
+            <a href="cart.html">Корзина (<span id="cart-count">0</span>)</a> <!-- Значок корзины с количеством товаров -->
+        </div>
     </header>
 
     <section class="product-list">
@@ -18,12 +21,12 @@
             <div class="product-card">
                 <span>Молоко 1л</span>
                 <p>Цена: 50 ₽</p>
-                <button onclick="addToCart('Молоко 1л', 50)">Добавить в корзину</button>
+                <button onclick="addToCart('Молоко 1л', 50)">+</button> <!-- Кнопка + -->
             </div>
             <div class="product-card">
                 <span>Хлеб</span>
                 <p>Цена: 30 ₽</p>
-                <button onclick="addToCart('Хлеб', 30)">Добавить в корзину</button>
+                <button onclick="addToCart('Хлеб', 30)">+</button> <!-- Кнопка + -->
             </div>
         </div>
     </section>
