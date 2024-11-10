@@ -4,7 +4,10 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // Функция для отображения количества товаров в корзине на значке
 function updateCartCount() {
     const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
-    document.getElementById('cart-count').textContent = cartCount;
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
+    }
 }
 
 // Добавление товара в корзину
