@@ -22,41 +22,47 @@ function confirmOrder() {
     const floor = document.getElementById("floor").value.trim();
     const comment = document.getElementById("comment").value.trim();
 
+    // Функция для отображения ошибки и возврата фокуса на поле
+    function showError(message, fieldId) {
+        alert(message);
+        document.getElementById(fieldId).focus();
+    }
+
     // Валидация имени
     if (name === "") {
-        alert("Пожалуйста, введите ваше имя.");
+        showError("Пожалуйста, введите ваше имя.", "name");
         return;
     }
 
     // Валидация номера телефона
     const phoneRegex = /^\+7\d{10}$/;
     if (!phoneRegex.test(phone)) {
-        alert("Пожалуйста, введите корректный номер телефона в формате +7XXXXXXXXXX.");
+        showError("Пожалуйста, введите корректный номер телефона в формате +7XXXXXXXXXX.", "phone");
         return;
     }
 
     // Валидация улицы
     if (street === "") {
-        alert("Пожалуйста, введите название улицы.");
+        showError("Пожалуйста, введите название улицы.", "street");
         return;
     }
 
     // Валидация дома (до 5 символов)
     const houseRegex = /^[a-zA-Z0-9]{1,5}$/;
     if (!houseRegex.test(house)) {
-        alert("Пожалуйста, введите номер дома (до 5 символов).");
+        showError("Пожалуйста, введите номер дома (до 5 символов).", "house");
         return;
     }
 
     // Валидация номера квартиры (только положительные числа, до 3 символов)
     if (!/^\d{1,3}$/.test(apartment)) {
-        alert("Пожалуйста, введите корректный номер квартиры (до 3 цифр, только положительные числа).");
+        showError("Пожалуйста, введите корректный номер квартиры (до 3 цифр, только положительные числа).", "apartment");
         return;
     }
 
     // Валидация этажа (только положительные числа, до 2 символов)
     if (!/^\d{1,2}$/.test(floor)) {
-        alert("Пожалуйста, введите корректный этаж (до 2 цифр, только положительные числа).");
+        showError("Пожалуйста, введите корректный этаж (до 2 цифр, только положительные числа).", "floor");
         return;
     }
 
