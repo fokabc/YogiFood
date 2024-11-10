@@ -3,7 +3,6 @@ let cart = [];
 
 // Добавление товара в корзину
 function addToCart(name, price) {
-    // Проверка, есть ли товар уже в корзине
     const existingProduct = cart.find(item => item.name === name);
 
     if (existingProduct) {
@@ -38,7 +37,7 @@ function proceedToCheckout() {
     window.location.href = "checkout.html";
 }
 
-// Вернуться на предыдущую страницу
+// Функция для кнопки "Назад"
 function goBack() {
     window.history.back();
 }
