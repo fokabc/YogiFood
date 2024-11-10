@@ -106,6 +106,26 @@ a {
     color: #A0A0A0; /* Серый текст для дополнительной информации */
 }
 
+/* Основные стили для полей ввода */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2C2C2C; /* Темный фон для полей ввода */
+    color: #E0E0E0; /* Светлый текст */
+    margin-bottom: 10px;
+}
+
+/* Стиль для текста-подсказки (placeholder) */
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+    color: #888; /* Серый цвет для placeholder */
+}
+
 /* Стили для кнопок */
 button {
     background-color: #BB86FC;
@@ -147,21 +167,6 @@ button.back-button:hover {
 
 .product-card button:hover {
     background-color: #A75AFF;
-}
-
-/* Стили для ввода текста */
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #2C2C2C;
-    color: #E0E0E0;
-    margin-bottom: 10px;
-}
-
-input[type="text"]::placeholder {
-    color: #888;
 }
 
 /* Дополнительные стили для корзины */
