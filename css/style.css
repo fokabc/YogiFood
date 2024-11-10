@@ -126,6 +126,17 @@ textarea::placeholder {
     color: #888; /* Серый цвет для placeholder */
 }
 
+/* Стили для сообщений об ошибке */
+.error-message {
+    color: #FF6B6B;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.input-error {
+    border-color: #FF6B6B;
+}
+
 /* Стили для кнопок */
 button {
     background-color: #BB86FC;
@@ -141,42 +152,4 @@ button {
 
 button:hover {
     background-color: #A75AFF;
-}
-
-/* Стили для кнопок "Назад" */
-button.back-button {
-    background-color: #333333;
-    color: #E0E0E0;
-}
-
-button.back-button:hover {
-    background-color: #555555;
-}
-
-/* Стили для кнопок добавления товара (+) */
-.product-card button {
-    font-size: 1.5em;
-    padding: 5px 10px;
-    background-color: #BB86FC;
-    color: #121212;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.product-card button:hover {
-    background-color: #A75AFF;
-}
-
-/* Дополнительные стили для корзины */
-#cart-items {
-    margin-top: 15px;
-}
-
-#total-price {
-    font-weight: bold;
-    margin-top: 15px;
-    color: #BB86FC;
-    text-align: center;
 }
