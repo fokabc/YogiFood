@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выбор товаров</title>
+    <title>Товары магазина</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
+        <!-- Кнопка "Назад" для возврата к списку магазинов -->
+        <button class="back-button" onclick="window.location.href='index.html'">Назад</button>
         <h1>Товары магазина</h1>
-        <div class="cart-icon">
-            <a href="cart.html">Корзина (<span id="cart-count">0</span>)</a> <!-- Значок корзины с количеством товаров -->
-        </div>
     </header>
 
     <section class="product-list">
         <h2>Выберите товары</h2>
+        
         <div class="product-cards">
-            <!-- Пример товаров -->
+            <!-- Пример карточек товаров -->
             <div class="product-card">
+                <img src="images/milk.jpg" alt="Молоко">
                 <span>Молоко 1л</span>
                 <p>Цена: 50 ₽</p>
-                <button onclick="addToCart('Молоко 1л', 50)">+</button> <!-- Кнопка + -->
+                <button onclick="addToCart('Молоко 1л', 50)">+</button>
             </div>
+            
             <div class="product-card">
+                <img src="images/bread.jpg" alt="Хлеб">
                 <span>Хлеб</span>
                 <p>Цена: 30 ₽</p>
-                <button onclick="addToCart('Хлеб', 30)">+</button> <!-- Кнопка + -->
+                <button onclick="addToCart('Хлеб', 30)">+</button>
             </div>
+            
+            <!-- Добавьте другие товары здесь -->
         </div>
     </section>
 

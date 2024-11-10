@@ -24,6 +24,25 @@ header h1 {
     margin: 0;
 }
 
+/* Стили для кнопки "Назад" */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: #E0E0E0;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
 /* Стиль для значка корзины в header */
 .cart-icon {
     position: absolute;
@@ -152,4 +171,12 @@ button {
 
 button:hover {
     background-color: #A75AFF;
+}
+
+/* Стили для кнопки подтверждения заказа */
+.confirm-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }

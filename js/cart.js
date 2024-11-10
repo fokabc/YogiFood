@@ -1,63 +1,102 @@
-// Массив для хранения товаров в корзине
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// Инициализация корзины как пустого массива
+let cart = [];
 
-// Функция для отображения количества товаров в корзине на значке
-function updateCartCount() {
-    const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
-    const cartCountElement = document.getElementById('cart-count');
-    if (cartCountElement) {
-        cartCountElement.textContent = cartCount;
-    }
-}
+// Функция добавления товара в корзину
+function addToCart(itemName, itemPrice) {
+    // Проверяем, есть ли уже товар в корзине
+    const existingItem = cart.find(item => item.name === itemName);
 
-// Добавление товара в корзину
-function addToCart(name, price) {
-    const existingProduct = cart.find(item => item.name === name);
-
-    if (existingProduct) {
-        existingProduct.quantity += 1; // Увеличиваем количество, если товар уже в корзине
+    if (existingItem) {
+        // Если товар уже есть, увеличиваем его количество
+        existingItem.quantity += 1;
     } else {
-        cart.push({ name, price, quantity: 1 }); // Добавляем новый товар с количеством 1
+        // Если товара нет в корзине, добавляем его
+        cart.push({ name: itemName, price: itemPrice, quantity: 1 });
     }
 
-    alert(`${name} добавлен в корзину.`);
-    localStorage.setItem('cart', JSON.stringify(cart)); // Сохраняем корзину в localStorage
-    updateCartCount(); // Обновляем количество товаров на значке корзины
+    // Обновляем отображение корзины
+    updateCartDisplay();
+    alert(`${itemName} добавлен в корзину!`);
 }
 
-// Загрузка товаров в корзине и отображение их на странице cart.html
-function loadCart() {
-    let cartItems = document.getElementById('cart-items');
-    let total = 0;
-    cartItems.innerHTML = ''; // Очищаем список перед отображением
+// Функция для обновления отображения корзины
+function updateCartDisplay() {
+    const cartContainer = document.querySelector(".cart-list");
+    if (!cartContainer) return;
 
+    // Очищаем текущее содержимое корзины
+    cartContainer.innerHTML = "<h2>Ваши товары</h2>";
+
+    // Переменная для хранения общей стоимости
+    let totalPrice = 0;
+
+    // Создаем элементы для каждого товара в корзине
     cart.forEach(item => {
-        total += item.price * item.quantity; // Считаем стоимость с учетом количества
-        let itemElement = document.createElement('p');
-        itemElement.textContent = `${item.name} - ${item.price} ₽ x ${item.quantity} = ${item.price * item.quantity} ₽`;
-        cartItems.appendChild(itemElement);
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+
+        const itemElement = document.createElement("p");
+        itemElement.textContent = `${item.name} - ${item.price} ₽ x ${item.quantity} = ${itemTotal} ₽`;
+        cartContainer.appendChild(itemElement);
     });
 
-    document.getElementById('total-price').textContent = `Общая стоимость: ${total} ₽`;
-    updateCartCount(); // Обновляем количество товаров на значке корзины
+    // Отображаем общую стоимость
+    const totalElement = document.createElement("p");
+    totalElement.classList.add("total-price");
+    totalElement.textContent = `Общая стоимость: ${totalPrice} ₽`;
+    cartContainer.appendChild(totalElement);
+
+    // Добавляем кнопки "Перейти к подтверждению" и "Назад"
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Перейти к подтверждению";
+    confirmButton.classList.add("confirm-button");
+    confirmButton.onclick = () => window.location.href = "checkout.html";
+
+    const backButton = document.createElement("button");
+    backButton.textContent = "Назад";
+    backButton.classList.add("back-button");
+    backButton.onclick = () => window.location.href = "products.html";
+
+    cartContainer.appendChild(confirmButton);
+    cartContainer.appendChild(backButton);
 }
 
-// Переход к подтверждению заказа
-function proceedToCheckout() {
-    window.location.href = "checkout.html";
+// Функция для отображения корзины на странице корзины
+function displayCart() {
+    const cartContainer = document.querySelector(".cart-list");
+    if (!cartContainer) return;
+
+    cartContainer.innerHTML = "<h2>Ваши товары</h2>";
+
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+
+        const itemElement = document.createElement("p");
+        itemElement.textContent = `${item.name} - ${item.price} ₽ x ${item.quantity} = ${itemTotal} ₽`;
+        cartContainer.appendChild(itemElement);
+    });
+
+    const totalElement = document.createElement("p");
+    totalElement.classList.add("total-price");
+    totalElement.textContent = `Общая стоимость: ${totalPrice} ₽`;
+    cartContainer.appendChild(totalElement);
+
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Перейти к подтверждению";
+    confirmButton.classList.add("confirm-button");
+    confirmButton.onclick = () => window.location.href = "checkout.html";
+
+    const backButton = document.createElement("button");
+    backButton.textContent = "Назад";
+    backButton.classList.add("back-button");
+    backButton.onclick = () => window.location.href = "products.html";
+
+    cartContainer.appendChild(confirmButton);
+    cartContainer.appendChild(backButton);
 }
 
-// Функция для кнопки "Назад"
-function goBack() {
-    window.history.back();
-}
-
-// При загрузке страницы cart.html, загрузить корзину
-if (document.getElementById('cart-items')) {
-    document.addEventListener('DOMContentLoaded', loadCart);
-}
-
-// Обновляем значок корзины при загрузке страницы
-if (document.getElementById('cart-count')) {
-    document.addEventListener('DOMContentLoaded', updateCartCount);
-}
+// Вызываем displayCart при загрузке страницы корзины
+document.addEventListener("DOMContentLoaded", displayCart);
