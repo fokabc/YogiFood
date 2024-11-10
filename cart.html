@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корзина</title>
+    <title>Выбор товаров</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Корзина</h1>
+        <h1>Товары магазина</h1>
     </header>
 
-    <section class="cart-list">
-        <h2>Ваши товары</h2>
-        <div id="cart-items"></div>
-        <p id="total-price">Общая стоимость: 0 ₽</p>
-        <button onclick="proceedToCheckout()">Перейти к подтверждению</button>
-        <button class="back-button" onclick="goBack()">Назад</button> <!-- Кнопка для перехода назад -->
+    <section class="product-list">
+        <h2>Выберите товары</h2>
+        <div class="product-cards">
+            <!-- Пример товаров -->
+            <div class="product-card">
+                <span>Молоко 1л</span>
+                <p>Цена: 50 ₽</p>
+                <button onclick="addToCart('Молоко 1л', 50)">Добавить в корзину</button>
+            </div>
+            <div class="product-card">
+                <span>Хлеб</span>
+                <p>Цена: 30 ₽</p>
+                <button onclick="addToCart('Хлеб', 30)">Добавить в корзину</button>
+            </div>
+        </div>
     </section>
 
     <script src="js/cart.js"></script>
