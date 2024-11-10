@@ -5,6 +5,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh; /* Минимальная высота, чтобы покрыть весь экран */
+    overflow-x: hidden;
 }
 
 /* Стили для шапки и полей ввода */
@@ -22,7 +24,7 @@ header {
 
 .address-bar span {
     font-weight: bold;
-    color: #BB86FC; /* Выделение цветом для акцентов */
+    color: #BB86FC; /* Цвет для акцентов */
     margin-right: 10px;
 }
 
@@ -42,6 +44,7 @@ header {
 /* Стили для секции магазинов */
 .store-list {
     padding: 20px;
+    background-color: #121212; /* Установка фона для секции */
 }
 
 .store-list h2 {
