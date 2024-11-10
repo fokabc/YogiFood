@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подтверждение заказа</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Подтверждение заказа</h1>
+    </header>
+
+    <section class="checkout-form">
+        <h2>Контактные данные</h2>
+        <label>Адрес доставки:</label>
+        <input type="text" id="address" placeholder="Введите адрес">
+        <label>Имя:</label>
+        <input type="text" id="name" placeholder="Ваше имя">
+        <label>Телефон:</label>
+        <input type="text" id="phone" placeholder="Ваш телефон">
+        <button onclick="confirmOrder()">Подтвердить заказ</button>
+    </section>
+
+    <script>
+        function confirmOrder() {
+            alert("Заказ подтвержден!");
+        }
+    </script>
+</body>
+</html>

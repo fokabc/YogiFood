@@ -3,45 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YogiFood</title>
+    <title>YogiFood - Выбор магазина</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header с адресом и поиском -->
     <header>
-        <div class="address-bar">
-            <span>📍 Адрес доставки:</span>
-            <input type="text" placeholder="Введите адрес" id="address-input">
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Поиск магазинов" id="search-input">
-        </div>
+        <h1>YogiFood</h1>
     </header>
 
-    <!-- Секция с магазинами -->
     <section class="store-list">
-        <h2>Популярные магазины</h2>
+        <h2>Выберите магазин</h2>
         <div class="store-cards">
-            <!-- Карточки магазинов -->
+            <!-- Карточки магазинов с переходом на страницу товаров -->
             <div class="store-card">
-                <img src="images/pyaterochka-logo.png" alt="Пятерочка">
-                <span>Пятерочка</span>
-                <p>Доставка 1-2 часа</p>
+                <a href="products.html?store=pyaterochka">
+                    <img src="images/pyaterochka-logo.png" alt="Пятерочка">
+                    <span>Пятерочка</span>
+                    <p>Доставка 1-2 часа</p>
+                </a>
             </div>
             <div class="store-card">
-                <img src="images/magnit-logo.png" alt="Магнит">
-                <span>Магнит</span>
-                <p>Доставка 1-2 часа</p>
+                <a href="products.html?store=magnit">
+                    <img src="images/magnit-logo.png" alt="Магнит">
+                    <span>Магнит</span>
+                    <p>Доставка 1-2 часа</p>
+                </a>
             </div>
             <div class="store-card">
-                <img src="images/dixy-logo.png" alt="Дикси">
-                <span>Дикси</span>
-                <p>Доставка 1-2 часа</p>
+                <a href="products.html?store=dixy">
+                    <img src="images/dixy-logo.png" alt="Дикси">
+                    <span>Дикси</span>
+                    <p>Доставка 1-2 часа</p>
+                </a>
             </div>
-            <!-- Добавьте другие магазины по аналогии -->
         </div>
     </section>
-
-    <script src="js/script.js"></script>
 </body>
 </html>

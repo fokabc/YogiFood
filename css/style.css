@@ -14,6 +14,7 @@ header {
     padding: 10px;
     background-color: #1E1E1E; /* Темная шапка */
     border-bottom: 1px solid #333;
+    text-align: center;
 }
 
 .address-bar, .search-bar {
@@ -42,12 +43,11 @@ header {
 }
 
 /* Стили для секции магазинов */
-.store-list {
+.store-list, .product-list, .cart-list, .checkout-form {
     padding: 20px;
-    background-color: #121212; /* Установка фона для секции */
 }
 
-.store-list h2 {
+.store-list h2, .product-list h2, .cart-list h2, .checkout-form h2 {
     font-size: 1.5em;
     color: #E0E0E0;
     margin-bottom: 20px;
@@ -62,7 +62,7 @@ header {
     justify-content: center;
 }
 
-.store-card {
+.store-card, .product-card {
     flex: 1 1 calc(33% - 20px);
     background-color: #1E1E1E; /* Темный фон карточек */
     border: 1px solid #333;
@@ -72,26 +72,70 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.2s, background-color 0.3s;
+    margin-bottom: 10px;
 }
 
-.store-card:hover {
+.store-card:hover, .product-card:hover {
     transform: scale(1.05);
     background-color: #333333;
 }
 
-.store-card img {
+.store-card img, .product-card img {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
 }
 
-.store-card span {
+.store-card span, .product-card span {
     display: block;
     font-weight: bold;
     color: #BB86FC; /* Цвет текста для акцентов */
     margin-bottom: 5px;
 }
 
-.store-card p {
+.store-card p, .product-card p, .cart-list p, .checkout-form p {
     color: #A0A0A0; /* Серый текст для дополнительной информации */
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #BB86FC;
+    color: #121212;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #A75AFF;
+}
+
+/* Стили для ввода текста */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2C2C2C;
+    color: #E0E0E0;
+    margin-bottom: 10px;
+}
+
+input[type="text"]::placeholder {
+    color: #888;
+}
+
+/* Дополнительные стили для корзины */
+#cart-items {
+    margin-top: 15px;
+}
+
+#total-price {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #BB86FC;
+    text-align: center;
 }
