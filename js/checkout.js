@@ -1,4 +1,18 @@
-// Функция подтверждения заказа с валидацией полей
+// Валидация и обработка ввода номера телефона
+function enforcePhoneFormat() {
+    const phoneInput = document.getElementById("phone");
+    
+    // Устанавливаем начальное значение, если поле пустое
+    if (!phoneInput.value.startsWith("+7")) {
+        phoneInput.value = "+7";
+    }
+
+    // Ограничиваем длину до 12 символов (1 символ для "+" и 11 для номера)
+    if (phoneInput.value.length > 12) {
+        phoneInput.value = phoneInput.value.slice(0, 12);
+    }
+}
+
 function confirmOrder() {
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
@@ -6,7 +20,6 @@ function confirmOrder() {
     const house = document.getElementById("house").value.trim();
     const apartment = document.getElementById("apartment").value.trim();
     const floor = document.getElementById("floor").value.trim();
-    const entrance = document.getElementById("entrance").value.trim();
     const comment = document.getElementById("comment").value.trim();
 
     // Валидация имени
@@ -35,21 +48,15 @@ function confirmOrder() {
         return;
     }
 
-    // Валидация номера квартиры (только цифры)
-    if (!/^\d+$/.test(apartment)) {
-        alert("Пожалуйста, введите корректный номер квартиры (только цифры).");
+    // Валидация номера квартиры (только цифры, до 3 символов)
+    if (!/^\d{1,3}$/.test(apartment)) {
+        alert("Пожалуйста, введите корректный номер квартиры (до 3 цифр).");
         return;
     }
 
-    // Валидация этажа (только цифры)
-    if (!/^\d+$/.test(floor)) {
-        alert("Пожалуйста, введите корректный этаж (только цифры).");
-        return;
-    }
-
-    // Валидация подъезда (необязательно, но проверяем, если введено)
-    if (entrance !== "" && !/^\d+$/.test(entrance)) {
-        alert("Пожалуйста, введите корректный номер подъезда (только цифры).");
+    // Валидация этажа (только цифры, до 2 символов)
+    if (!/^\d{1,2}$/.test(floor)) {
+        alert("Пожалуйста, введите корректный этаж (до 2 цифр).");
         return;
     }
 
