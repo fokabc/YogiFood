@@ -1,5 +1,5 @@
-// Инициализация корзины как пустого массива
-let cart = [];
+// Инициализация корзины как пустого массива или загрузка из localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Функция добавления товара в корзину
 function addToCart(itemName, itemPrice) {
@@ -13,6 +13,9 @@ function addToCart(itemName, itemPrice) {
         // Если товара нет в корзине, добавляем его
         cart.push({ name: itemName, price: itemPrice, quantity: 1 });
     }
+
+    // Сохраняем корзину в localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     // Обновляем отображение корзины
     updateCartDisplay();
