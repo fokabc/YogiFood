@@ -9,7 +9,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Стили для шапки и полей ввода */
+/* Стили для шапки */
 header {
     padding: 10px;
     background-color: #1E1E1E; /* Темная шапка */
@@ -17,32 +17,19 @@ header {
     text-align: center;
 }
 
-.address-bar, .search-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.address-bar span {
-    font-weight: bold;
-    color: #BB86FC; /* Цвет для акцентов */
-    margin-right: 10px;
-}
-
-#address-input, #search-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #2C2C2C; /* Темный фон полей ввода */
+header h1 {
+    font-size: 1.5em;
     color: #E0E0E0;
+    margin: 0;
 }
 
-#address-input::placeholder, #search-input::placeholder {
-    color: #888;
+/* Убираем подчеркивание и цвет текста для ссылок */
+a {
+    text-decoration: none;
+    color: inherit; /* Устанавливаем цвет текста, соответствующий общему стилю */
 }
 
-/* Стили для секции магазинов */
+/* Стили для секций */
 .store-list, .product-list, .cart-list, .checkout-form {
     padding: 20px;
 }
@@ -54,8 +41,8 @@ header {
     text-align: center;
 }
 
-/* Стили для карточек магазинов */
-.store-cards {
+/* Стили для карточек магазинов и товаров */
+.store-cards, .product-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -89,7 +76,7 @@ header {
 .store-card span, .product-card span {
     display: block;
     font-weight: bold;
-    color: #BB86FC; /* Цвет текста для акцентов */
+    color: #E0E0E0; /* Изменен цвет текста для названий магазинов и товаров */
     margin-bottom: 5px;
 }
 
@@ -107,10 +94,21 @@ button {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #A75AFF;
+}
+
+/* Стили для кнопок "Назад" */
+button.back-button {
+    background-color: #333333;
+    color: #E0E0E0;
+}
+
+button.back-button:hover {
+    background-color: #555555;
 }
 
 /* Стили для ввода текста */
