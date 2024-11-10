@@ -1,3 +1,4 @@
+// Функция подтверждения заказа с валидацией полей
 function confirmOrder() {
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
@@ -56,3 +57,11 @@ function confirmOrder() {
     alert("Заказ подтвержден!");
     // Здесь можно добавить код для отправки данных на сервер или дальнейшую обработку
 }
+
+// Функция для скрытия клавиатуры при нажатии на пустое место
+document.addEventListener('click', function(event) {
+    // Проверяем, кликнул ли пользователь вне поля ввода или текстового поля
+    if (!event.target.closest('input') && !event.target.closest('textarea')) {
+        document.activeElement.blur();
+    }
+});
